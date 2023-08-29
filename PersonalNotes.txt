@@ -1,0 +1,4 @@
+Note that the follows table has an unusual arrangement: it has two foreign keys to the same table. Why?
+
+-This is to establish a many to many relationship between users and followers. For example, a user can follow many users as well as a user can have many followers.
+-This organizes the code more efficently as well by letting us keep track of followers between users within a seperate table rather than cramming all the code within the Users model itself
