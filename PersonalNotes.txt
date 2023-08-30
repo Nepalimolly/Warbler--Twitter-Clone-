@@ -2,3 +2,18 @@ Note that the follows table has an unusual arrangement: it has two foreign key
 
 -This is to establish a many to many relationship between users and followers. For example, a user can follow many users as well as a user can have many followers.
 -This organizes the code more efficently as well by letting us keep track of followers between users within a seperate table rather than cramming all the code within the Users model itself
+
+
+- How is the logged in user being kept track of?
+We are using a global function in conjunction with the session
+
+- What is Flask’s ***g*** object?
+a global flask variable, allows us to access information within the session for example about our user.
+
+- What is the purpose of ***add_user_to_g ?***
+this fills in the g.user with all information about the user. Basically checkking if the user is currently logged in or not.
+
+
+- What does ***@app.before_request*** mean?
+This runs that code before any request in the application.
+
