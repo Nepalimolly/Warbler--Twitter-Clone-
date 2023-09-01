@@ -44,9 +44,9 @@ class Likes(db.Model):
 
     message_id = db.Column(
         db.Integer,
-        db.ForeignKey('messages.id', ondelete='cascade'),
-        unique=True
+        db.ForeignKey('messages.id', ondelete='cascade')
     )
+
 
 
 class User(db.Model):
@@ -94,22 +94,20 @@ class User(db.Model):
         nullable=False,
     )
 
-    messages = db.relationship('Message', back_populates='user')
+    messages = db.relationship('Message')
 
     followers = db.relationship(
         "User",
         secondary="follows",
         primaryjoin=(Follows.user_being_followed_id == id),
-        secondaryjoin=(Follows.user_following_id == id),
-        back_populates="following"
+        secondaryjoin=(Follows.user_following_id == id)
     )
 
     following = db.relationship(
         "User",
         secondary="follows",
         primaryjoin=(Follows.user_following_id == id),
-        secondaryjoin=(Follows.user_being_followed_id == id),
-        back_populates="following"
+        secondaryjoin=(Follows.user_being_followed_id == id)
     )
 
     likes = db.relationship(
