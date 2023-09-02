@@ -12,7 +12,7 @@ class UserModelTestCase(TestCase):
     def create_app(self):
         app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:Lukadon1996$@localhost/warbler'
         app.config['TESTING'] = True
-        app.config['WTF_CSRF_ENABLED'] = False  # Disable CSRF for testing
+        app.config['WTF_CSRF_ENABLED'] = False  
         return app
 
     def setUp(self):
